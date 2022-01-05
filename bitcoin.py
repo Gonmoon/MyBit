@@ -3,11 +3,11 @@ import re
 
 
 class bitcoin():
-	def __init__(self, address):
+	def __init__(self, address: str):
 		# -----Кошелёк BTC-----
 		self.url_purse = 'https://www.blockchain.com/btc/address/' + address
 
-	def get_balance(self):
+	def get_balance(self) -> str:
 		# ------получения баланса в BTC-----
 		page_purse = requests.get(self.url_purse).text
 		btc_purse = re.search(r'Balance</span></div></div><div class="sc-8sty72-0 bFeqhe"><span class="sc-1ryi78w-0 cILyoi sc-16b9dsl-1 ZwupP u3ufsr-0 eQTRKC" opacity="1">(\S+)', page_purse)
